@@ -1,5 +1,4 @@
 name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   push:
     tags:
@@ -13,16 +12,15 @@ jobs:
       - name: Compile Latex document
         uses: xu cheng/latex-action@v3
         with:
-        root_file: card.tex
-        latexmk_use_xelatex: true
+          root_file: card.tex
+          latexmk_use_xelatex: true
       - name: Upload PDF file 
         uses: actions/upload-artifact@v3
-        width:
-        name: PDF
-        path: card.pdf
+        with:
+          name: PDF
+          path: card.pdf
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-        files: card.pdf
-        repo-token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
-    
+          files: card.pdf
+          repo-token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
