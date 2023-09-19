@@ -20,7 +20,7 @@ jobs:
         width:
         name: PDF
         path: card.pdf
-        -name: Release
+      - name: Release
         uses: softprops/action-gh-release@v1
         with:
         files: card.pdf
